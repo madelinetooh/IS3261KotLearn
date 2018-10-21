@@ -1,4 +1,4 @@
-# IS3261 Project
+# IS3261 KotLearn
 
 IS3261 KotLean <br/>
 2018/2019 Semester 1 <br/>
