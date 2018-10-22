@@ -5,3 +5,5 @@ IS3261 KotLean <br/>
 Group Members:<br/>
 Le Quang Quan , A0126932E <br/>
 Madeline Tooh Weiping , A0160349E
+
+Package name: KotLearn.com
