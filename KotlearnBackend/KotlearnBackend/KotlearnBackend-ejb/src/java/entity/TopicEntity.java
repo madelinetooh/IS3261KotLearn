@@ -5,12 +5,8 @@
  */
 package entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -18,19 +14,24 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class TopicEntity implements Serializable {
-    @OneToOne(mappedBy = "topicEntity")
-    private ContentEntity contentEntity;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String text;
+    private Long id;
 
-    public Integer getId() {
+    private Long headerIndex;
+
+    private String topicHeader;
+    @Lob
+    private String topicContent;
+
+    public TopicEntity() {}
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -59,19 +60,27 @@ public class TopicEntity implements Serializable {
         return "entity.TopicEntity[ id=" + id + " ]";
     }
 
-    public String getText() {
-        return text;
+    public String getTopicHeader() {
+        return topicHeader;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTopicHeader(String text) {
+        this.topicHeader = text;
     }
 
-    public ContentEntity getContentEntity() {
-        return contentEntity;
+    public String getTopicContent() {
+        return topicContent;
     }
 
-    public void setContentEntity(ContentEntity contentEntity) {
-        this.contentEntity = contentEntity;
+    public void setTopicContent(String content) {
+        this.topicContent = content;
+    }
+
+    public Long getHeaderIndex() {
+        return headerIndex;
+    }
+
+    public void setHeaderIndex(Long index) {
+        this.headerIndex = index;
     }
 }

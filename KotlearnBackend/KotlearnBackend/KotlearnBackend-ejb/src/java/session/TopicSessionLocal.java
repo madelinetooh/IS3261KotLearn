@@ -17,7 +17,8 @@ import java.util.List;
 @Local
 public interface TopicSessionLocal {
     List<TopicEntity> retrieveAllTopics();
-    TopicEntity retrieveTopicById(Integer id);
+    TopicEntity retrieveTopicByIndex(Long index);
     void createTopic(TopicEntity topicEntity);
+    void createTopic(String text, String content, Long index);
     void updateTopic(TopicEntity topicEntity);
 }
