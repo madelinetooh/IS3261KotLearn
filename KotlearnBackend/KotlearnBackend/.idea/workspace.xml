@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="768d5d91-ea4c-4da4-9d5d-243a054280c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/setup/sun-resources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/setup/sun-resources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/conf/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/conf/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" afterDir="false" />
-    </list>
+    <list default="true" id="768d5d91-ea4c-4da4-9d5d-243a054280c6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +16,7 @@
     <session id="929203577">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -46,12 +35,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5385" />
+          <entry key="java" value="5442" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5385" />
+          <entry key="JAVA" value="5442" />
         </counts>
       </usages-collector>
     </session>
@@ -73,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="1091" column="59" selection-start-line="1091" selection-start-column="59" selection-end-line="1091" selection-end-column="59" />
+            <state relative-caret-position="505">
+              <caret line="1109" column="108" selection-start-line="1109" selection-start-column="108" selection-end-line="1109" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -277,7 +266,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541267914849" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541267917040" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="F:/Programs/javaee-api-7.0.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -308,12 +297,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541222870109</updated>
-      <workItem from="1541222873287" duration="16845000" />
+      <workItem from="1541222873287" duration="17057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16845000" />
+    <option name="totallyTimeSpent" value="17057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -523,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="1091" column="59" selection-start-line="1091" selection-start-column="59" selection-end-line="1091" selection-end-column="59" />
+        <state relative-caret-position="505">
+          <caret line="1109" column="108" selection-start-line="1109" selection-start-column="108" selection-end-line="1109" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
