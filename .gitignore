@@ -8,3 +8,13 @@
 /build
 /captures
 .externalNativeBuild
+/KotlearnBackend/KotlearnBackend/nbproject/private/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-war/nbproject/private/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-ejb/nbproject/private/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-ejb/build/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-ejb/dist/
+/KotlearnBackend/KotlearnBackend/dist/
+/KotlearnBackend/KotlearnBackend/build/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-war/dist/
+/KotlearnBackend/KotlearnBackend/KotlearnBackend-war/build/
+/.idea
