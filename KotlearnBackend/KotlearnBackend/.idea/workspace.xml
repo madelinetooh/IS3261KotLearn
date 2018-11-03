@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768d5d91-ea4c-4da4-9d5d-243a054280c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/setup/sun-resources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/setup/sun-resources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/conf/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/conf/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,6 +20,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="929203577">
@@ -21,22 +34,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="2" />
           <entry key="java" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CLASS" value="2" />
           <entry key="JAVA" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2798" />
+          <entry key="java" value="5385" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2798" />
+          <entry key="JAVA" value="5385" />
         </counts>
       </usages-collector>
     </session>
@@ -44,19 +59,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/ApplicationConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+            <state relative-caret-position="366">
+              <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="519" column="18" selection-start-line="519" selection-start-column="18" selection-end-line="519" selection-end-column="18" />
+            <state relative-caret-position="369">
+              <caret line="1091" column="59" selection-start-line="1091" selection-start-column="59" selection-end-line="1091" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +85,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+            <state relative-caret-position="230">
+              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
               <folding>
-                <element signature="e#773#774#0" expanded="true" />
-                <element signature="e#804#805#0" expanded="true" />
                 <element signature="e#773#774#0" expanded="true" />
                 <element signature="e#801#802#0" expanded="true" />
                 <element signature="e#1005#1006#0" expanded="true" />
@@ -91,22 +98,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            <state relative-caret-position="-379">
+              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding>
                 <element signature="e#622#623#0" expanded="true" />
                 <element signature="e#647#648#0" expanded="true" />
@@ -114,46 +109,14 @@
                 <element signature="e#1490#1491#0" expanded="true" />
                 <element signature="e#1530#1531#0" expanded="true" />
                 <element signature="e#1562#1563#0" expanded="true" />
-                <element signature="e#1725#1726#0" expanded="true" />
-                <element signature="e#1761#1762#0" expanded="true" />
-                <element signature="e#1826#1827#0" expanded="true" />
-                <element signature="e#1876#1877#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-              <folding>
-                <element signature="e#1371#1372#0" expanded="true" />
-                <element signature="e#1398#1399#0" expanded="true" />
-                <element signature="e#1438#1439#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1569#1570#0" expanded="true" />
-                <element signature="e#1603#1604#0" expanded="true" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1708#1709#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSession.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-              <folding>
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-                <element signature="e#791#792#0" expanded="true" />
-                <element signature="e#880#881#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
+                <element signature="e#1740#1741#0" expanded="true" />
+                <element signature="e#1770#1771#0" expanded="true" />
+                <element signature="e#1816#1817#0" expanded="true" />
+                <element signature="e#1854#1855#0" expanded="true" />
+                <element signature="e#1720#1721#0" expanded="true" />
+                <element signature="e#1748#1749#0" expanded="true" />
+                <element signature="e#1788#1789#0" expanded="true" />
+                <element signature="e#1822#1823#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="255">
+              <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,11 +142,30 @@
       <find>tutorials</find>
       <find>kotlearn</find>
       <find>The KotLearn</find>
+      <find>createTopic</find>
+      <find>topc =</find>
+      <find>topics.add(</find>
+      <find>contents.add(</find>
+      <find>);</find>
+      <find>0L</find>
     </findStrings>
     <replaceStrings>
       <replace>createTopic</replace>
       <replace>Kotlearn</replace>
       <replace>KotLearn</replace>
+      <replace>topics.add</replace>
+      <replace>topic =</replace>
+      <replace>content =</replace>
+      <replace>;</replace>
+      <replace>9L</replace>
+      <replace>8L</replace>
+      <replace>7L</replace>
+      <replace>6L</replace>
+      <replace>5L</replace>
+      <replace>4L</replace>
+      <replace>3L</replace>
+      <replace>2L</replace>
+      <replace>1L</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,13 +175,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/GenericResource.java" />
-        <option value="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" />
-        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java" />
-        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" />
-        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" />
         <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java" />
         <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSession.java" />
+        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java" />
         <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java" />
+        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java" />
+        <option value="$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java" />
+        <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java" />
         <option value="$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java" />
       </list>
     </option>
@@ -211,10 +193,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -262,6 +243,28 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="restful" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="KotlearnBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="KotlearnBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="javaee-api-7.0.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KotlearnBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="javaee-api-7.0.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KotlearnBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="javaee-api-7.0.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -274,7 +277,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541229611184" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541267914849" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="F:/Programs/javaee-api-7.0.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -305,12 +308,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541222870109</updated>
-      <workItem from="1541222873287" duration="5888000" />
+      <workItem from="1541222873287" duration="16845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5888000" />
+    <option name="totallyTimeSpent" value="16845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -362,22 +365,24 @@
       <window_info id="Capture Tool" order="4" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Azure Explorer" order="6" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.51805335" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.11270802" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Azure Activity Log" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="HDInsight Spark Submission" order="6" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.32879046" />
-      <window_info anchor="bottom" id="Run" order="9" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="Debug Remote Spark Job in Cluster" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Remote Spark Job in Cluster" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Azure Activity Log" order="4" />
+      <window_info anchor="bottom" id="Java Enterprise" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="HDInsight Spark Submission" order="8" />
+      <window_info anchor="bottom" id="Message" order="9" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.32879046" />
+      <window_info anchor="bottom" id="Run" order="11" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="JSF" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -406,10 +411,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://F:/Programs/javaee-api-7.0.jar!/javax/persistence/Query.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Programs/javaee-api-7.0.jar!/javax/persistence/GenerationType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/ContentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        <state relative-caret-position="-59">
+          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
           <folding>
             <element signature="e#1371#1372#0" expanded="true" />
             <element signature="e#1398#1399#0" expanded="true" />
@@ -423,30 +452,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="77" column="35" lean-forward="true" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSessionLocal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/ContentSession.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        <state relative-caret-position="165">
+          <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding>
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
             <element signature="e#763#764#0" expanded="true" />
             <element signature="e#791#792#0" expanded="true" />
             <element signature="e#880#881#0" expanded="true" />
@@ -457,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/entity/TopicEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        <state relative-caret-position="-379">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
           <folding>
             <element signature="e#622#623#0" expanded="true" />
             <element signature="e#647#648#0" expanded="true" />
@@ -466,21 +476,43 @@
             <element signature="e#1490#1491#0" expanded="true" />
             <element signature="e#1530#1531#0" expanded="true" />
             <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1725#1726#0" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1876#1877#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#1770#1771#0" expanded="true" />
+            <element signature="e#1816#1817#0" expanded="true" />
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1720#1721#0" expanded="true" />
+            <element signature="e#1748#1749#0" expanded="true" />
+            <element signature="e#1788#1789#0" expanded="true" />
+            <element signature="e#1822#1823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KotlearnBackend-war/src/java/ws/restful/TopicResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSession.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        <state relative-caret-position="230">
+          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
           <folding>
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
             <element signature="e#773#774#0" expanded="true" />
             <element signature="e#801#802#0" expanded="true" />
             <element signature="e#1005#1006#0" expanded="true" />
@@ -489,20 +521,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/session/TopicSessionLocal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KotlearnBackend-ejb/src/java/DataInit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="519" column="18" selection-start-line="519" selection-start-column="18" selection-end-line="519" selection-end-column="18" />
+        <state relative-caret-position="369">
+          <caret line="1091" column="59" selection-start-line="1091" selection-start-column="59" selection-end-line="1091" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

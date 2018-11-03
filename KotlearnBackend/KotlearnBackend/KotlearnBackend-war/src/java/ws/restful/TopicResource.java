@@ -5,24 +5,20 @@
  */
 package ws.restful;
 
-import sun.security.pkcs11.wrapper.Functions;
+import entity.TopicEntity;
+import session.TopicSessionLocal;
 
-import javax.faces.flow.Flow;
-import javax.persistence.Inheritance;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.beans.Visibility;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
+import javax.ws.rs.core.UriInfo;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static ws.restful.util.ResourceHelper.getExceptionDump;
 
@@ -33,6 +29,7 @@ import static ws.restful.util.ResourceHelper.getExceptionDump;
  */
 @Path("topics")
 public class TopicResource {
+    TopicSessionLocal topicSessionLocal = lookupTopicSessionLocal();
     private LinkedHashMap<Object, Object> errorRsp = new LinkedHashMap<>();
 
     @Context
@@ -54,29 +51,16 @@ public class TopicResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getTopics() {
         try {
-            List<String> topics = new ArrayList<>();
-            topics.add("Overview");
-            topics.add("Environment Setup");
-            topics.add("Architecture");
-            topics.add("Basic Types");
-            topics.add("Control Flow");
-            topics.add("Class & Object");
-            topics.add("Constructors");
-            topics.add("Inheritance");
-            topics.add("Interface ");
-            topics.add("Visibility");
-            topics.add("Control");
-            topics.add("Extension");
-            topics.add("Data Classes");
-            topics.add("Sealed Class");
-            topics.add("Generics");
-            topics.add("Delegation");
-            topics.add("Functions");
-            topics.add("Destructuring");
-            topics.add("Declarations");
-            topics.add("Exception Handling");
-            topics.add("Function");
-            return Response.status(Status.OK).entity(topics).build();
+            List<TopicEntity> topicEntities = topicSessionLocal.retrieveAllTopics();
+            List<LinkedHashMap<Object, Object>> results = new ArrayList<>();
+            Collections.sort(topicEntities, (topic1, topic2) -> (int) (topic1.getHeaderIndex() - topic2.getHeaderIndex()));
+            for (TopicEntity topicEntity : topicEntities) {
+                LinkedHashMap<Object, Object> result = new LinkedHashMap<>();
+                result.put("id", topicEntity.getHeaderIndex());
+                result.put("text", topicEntity.getTopicHeader());
+                results.add(result);
+            }
+            return Response.status(Status.OK).entity(results).build();
         } catch (Exception e) {
             return Response.status(Status.INTERNAL_SERVER_ERROR).entity(errorRsp.put("error", getExceptionDump(e))).build();
         }
@@ -86,12 +70,23 @@ public class TopicResource {
     @Path("getContent")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getContent(@QueryParam("id") Integer id) {
+    public Response getContent(@QueryParam("id") Long id) {
         try {
-            String content = "This is a content";
-            return Response.status(Status.OK).entity(content).build();
+            TopicEntity topic = topicSessionLocal.retrieveTopicByIndex(id);
+            return Response.status(Status.OK).entity(topic.getTopicContent()).build();
         } catch (Exception e) {
-            return Response.status(Status.INTERNAL_SERVER_ERROR).entity(errorRsp.put("error", getExceptionDump(e))).build();
+            errorRsp.put("error", getExceptionDump(e));
+            return Response.status(Status.NOT_ACCEPTABLE).entity(errorRsp).build();
+        }
+    }
+
+    private TopicSessionLocal lookupTopicSessionLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (TopicSessionLocal) c.lookup("java:global/KotlearnBackend/KotlearnBackend-ejb/TopicSession!session.TopicSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
         }
     }
 }
