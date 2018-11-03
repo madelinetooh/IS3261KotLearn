@@ -12,19 +12,13 @@ class MainActivity : AppCompatActivity() {
         var selectedFragment: android.support.v4.app.Fragment? = null
         when (item.itemId) {
             R.id.navigation_profile -> {
-//                message.setText("helo")
                 selectedFragment = ProfileFragment()
-//                return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_content -> {
-//                message.setText("Content")
                 selectedFragment = ContentFragment()
-//                return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_complier -> {
-//                message.setText("Complier")
                 selectedFragment = CompilerFragment()
-//                return@OnNavigationItemSelectedListener true
             }
         }
         val fragmentManager = supportFragmentManager
