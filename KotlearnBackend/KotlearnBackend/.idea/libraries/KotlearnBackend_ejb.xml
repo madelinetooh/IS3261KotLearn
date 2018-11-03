@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="KotlearnBackend-ejb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/KotlearnBackend-ejb/dist/KotlearnBackend-ejb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
