@@ -85,12 +85,10 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context,
         var cursor: Cursor? = null
         try {
             cursor = db.rawQuery("select * from "+ TableInfo.TABLE_NAME, null)
-
         } catch (e: SQLiteException) {
             db.execSQL(SQL_CREATE_ENTRIES)
             return ArrayList()
         }
-
         var id: Int
         var topicHeader: String
         var topicContent: String
