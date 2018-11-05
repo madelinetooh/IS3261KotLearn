@@ -39,6 +39,11 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context,
         onUpgrade(db, oldVersion, newVersion)
     }
 
+    fun clearAllTopics() {
+        val db = writableDatabase
+        db?.execSQL("delete from " + TableInfo.TABLE_NAME)
+    }
+
     fun insertTopic(topic: TopicRecord): Boolean {
         val db = writableDatabase
         val values = ContentValues()
