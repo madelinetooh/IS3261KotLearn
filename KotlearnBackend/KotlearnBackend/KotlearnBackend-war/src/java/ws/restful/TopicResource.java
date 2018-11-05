@@ -58,6 +58,7 @@ public class TopicResource {
                 LinkedHashMap<Object, Object> result = new LinkedHashMap<>();
                 result.put("id", topicEntity.getHeaderIndex());
                 result.put("text", topicEntity.getTopicHeader());
+                result.put("content", topicEntity.getTopicContent());
                 results.add(result);
             }
             return Response.status(Status.OK).entity(results).build();

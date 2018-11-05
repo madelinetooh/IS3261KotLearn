@@ -1,12 +1,13 @@
 package com.kotlearn.kotlearn
 
-import android.app.Fragment
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var topicDbHelper: DBHelper
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         var selectedFragment: android.support.v4.app.Fragment? = null
@@ -34,5 +35,16 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
+
+        topicDbHelper = DBHelper(this)
+
+        var allTopics = topicDbHelper.readAllTopics()
+
+        println("TEST " + allTopics.size)
+        if (allTopics.isEmpty()) {
+            println("NO TOPICS " + allTopics.size)
+            InternetJSON(this@MainActivity,"http://172.19.195.190:8080/KotlearnBackend-war/resources/topics/getTopics",
+                    topicDbHelper).execute()
+        }
     }
 }
