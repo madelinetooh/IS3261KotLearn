@@ -2,7 +2,6 @@ package com.kotlearn.kotlearn
 
 import android.content.Context
 import android.os.AsyncTask
-import android.widget.TextView
 import android.widget.Toast
 import java.io.BufferedInputStream
 import java.io.BufferedReader
