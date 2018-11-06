@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
         var selectedFragment: android.support.v4.app.Fragment? = null
         when (item.itemId) {
-            R.id.navigation_profile -> {
+            R.id.navigation_web -> {
                 selectedFragment = ProfileFragment()
             }
             R.id.navigation_content -> {
