@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
     private var myPreferences = "myPrefs"
     private var URL = "URL"
+    private var CODE = "code"
 
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -71,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = this.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString(URL, "")
+        editor.putString(CODE, "")
         editor.apply()
 
         var allTopics = topicDbHelper.readAllTopics()
