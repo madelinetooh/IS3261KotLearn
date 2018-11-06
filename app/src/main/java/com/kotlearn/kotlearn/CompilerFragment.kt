@@ -22,10 +22,19 @@ class CompilerFragment : android.support.v4.app.Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         contentString = if (arguments != null) arguments!!.getString("code") else ""
-
+        val context = this@CompilerFragment.activity!!.applicationContext
+        sharedPreferences = context.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
         val view: View = inflater.inflate(R.layout.fragment_compiler, container, false)
 
         val input = view.code_editor
+
+        view.btn_clear.setOnClickListener {
+            input.setText("")
+            view.lineCount.text = "1"
+            val editor = sharedPreferences.edit()
+            editor.putString(CODE, "")
+            editor.apply()
+        }
 
         input.addTextChangedListener(object : TextWatcher {
 
@@ -40,7 +49,7 @@ class CompilerFragment : android.support.v4.app.Fragment() {
                     linestext = linestext + i + "\n"
 
                 }
-                lineCount.setText(linestext)
+                lineCount.text = linestext
             }
 
         })
@@ -54,6 +63,14 @@ class CompilerFragment : android.support.v4.app.Fragment() {
         val codeEditor = view.findViewById<EditText>(R.id.code_editor)
         if (sharedPreferences.getString(CODE, empty) != empty) {
             codeEditor.setText(Html.fromHtml(sharedPreferences.getString(CODE, empty)))
+            codeEditor.post {
+                var lines = codeEditor.lineCount
+                var linestext = ""
+                for (i in 1..lines) linestext = linestext + i + "\n"
+                lineCount.text = linestext
+            }
+        } else {
+            lineCount.text = "1"
         }
         codeEditor.setOnFocusChangeListener { v, hasFocus ->
             run {
