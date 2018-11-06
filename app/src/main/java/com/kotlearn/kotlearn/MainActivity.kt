@@ -41,7 +41,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfileFragment())
+                .commit()
+
+
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+
+        val fragmentContent= ContentFragment()
+        transaction.add(R.id.fragment_content,fragmentContent)
+
+        val fragmentProfile = ProfileFragment()
+        transaction.add(R.id.fragment_profile, fragmentProfile)
+
+        val fragmentComplier = CompilerFragment()
+        transaction.add(R.id.fragment_complier, fragmentComplier)
+
+        transaction.hide(fragmentComplier)
+        transaction.hide(fragmentContent)
+        transaction.hide(fragmentProfile)
+
+        transaction.commit()
+
+
         topicDbHelper = DBHelper(this)
 
         topicDbHelper.clearAllTopics()
@@ -58,6 +81,9 @@ class MainActivity : AppCompatActivity() {
 //                    topicDbHelper).execute()
             populateData()
         }
+
+
+
     }
 
     private fun populateData() {
