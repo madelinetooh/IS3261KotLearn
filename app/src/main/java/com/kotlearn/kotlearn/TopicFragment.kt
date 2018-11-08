@@ -2,11 +2,12 @@ package com.kotlearn.kotlearn
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.text.Html
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -39,7 +40,7 @@ class TopicFragment : android.support.v4.app.Fragment() {
         contentString = contentString.replace("RESULTENDHERE", "</result>")
         contentString = contentString.replace("BOLDHERE", "<b>")
         contentString = contentString.replace("BOLDENDHERE", "</b>")
-        contentString = contentString.replace("BREAKHERE", "<br />")
+        contentString = contentString.replace("BREAKHERE", "<br/>")
 
         contentString = contentString.replace("<h1>",
                 "<h1><font color='#E91E63' size='20'>")
@@ -78,7 +79,7 @@ class TopicFragment : android.support.v4.app.Fragment() {
             val textView = codeSnippetLayout.findViewById<TextView>(R.id.code_content)
             val runCodeButton = codeSnippetLayout.findViewById<Button>(R.id.run_code_button)
             var code = content.substring(6, codePos)
-            code = code.replace(" ", "&nbsp;")
+//            code = code.replace(" ", "&nbsp;")
             runCodeButton.setOnClickListener {
                 bottomNav.menu.findItem(R.id.navigation_complier).isChecked = true
                 val editor = sharedPreferences.edit()

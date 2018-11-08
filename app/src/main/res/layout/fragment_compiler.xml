@@ -89,8 +89,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/result_textview"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -98,13 +97,19 @@
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:lineSpacingMultiplier="1.5"
-            android:textSize="16dp"
             android:background="@color/resultBackground"
-            android:textColor="@color/resultText"
-            android:textStyle="italic"
-            android:hint="Output will be displayed here"
-            />
+            >
+            <TextView
+                android:id="@+id/result_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.5"
+                android:textSize="16dp"
+                android:textColor="@color/resultText"
+                android:textStyle="italic"
+                android:hint="Output will be displayed here"
+                />
+        </ScrollView>
     </LinearLayout>
 
 

@@ -1,6 +1,7 @@
 package com.kotlearn.kotlearn
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
@@ -39,6 +40,11 @@ class CompilerFragment : android.support.v4.app.Fragment() {
             val editor = sharedPreferences.edit()
             editor.putString(CODE, "")
             editor.apply()
+        }
+
+        view.btn_scanQR.setOnClickListener {
+            val qrIntent = Intent(context, QRScanner::class.java)
+            startActivity(qrIntent)
         }
 
         input.addTextChangedListener(object : TextWatcher {

@@ -1,9 +1,15 @@
 package com.kotlearn.kotlearn
 
+import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     private var myPreferences = "myPrefs"
     private var URL = "URL"
     private var CODE = "code"
+    private val permissionList = arrayOf(
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.CAMERA)
 
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -77,15 +86,51 @@ class MainActivity : AppCompatActivity() {
 
         var allTopics = topicDbHelper.readAllTopics()
 
-        if (allTopics.isEmpty()) {
-            println("NO TOPICS " + allTopics.size)
-//            InternetJSON(this@MainActivity,"http://172.19.195.190:8080/KotlearnBackend-war/resources/topics/getTopics",
-//                    topicDbHelper).execute()
-            populateData()
+        if (allTopics.isEmpty()) populateData()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (allPermissionsEnabled()) {
+
+            } else {
+                setupMultiplePermissions()
+            }
+        } else {
+            // it must be older than Marshmallow, no need to do anything as long as
+            // you have added the permission in the AndroidManifest.xml file
         }
+    }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private fun allPermissionsEnabled(): Boolean {
+        return permissionList.none{
+            checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED}
+    }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private fun setupMultiplePermissions() {
+        val remainingPermissions = permissionList.filter {
+            checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
+        requestPermissions(remainingPermissions.toTypedArray(), 101)
+    }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissionsList: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissionsList, grantResults)
+
+        if (requestCode == 101) {
+            if (grantResults.any { it != PackageManager.PERMISSION_GRANTED }) {
+
+                @TargetApi(Build.VERSION_CODES.M)
+                if (permissionList.any{ shouldShowRequestPermissionRationale(it)}) {
+                    AlertDialog.Builder(this)
+                            .setMessage("Press Permissions to Decide Permission Again")
+                            .setPositiveButton("Permissions") { _, _ ->
+                                setupMultiplePermissions()}
+                            .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss()}
+                            .create()
+                            .show()
+
+                }
+            }
+        }
     }
 
     private fun populateData() {
