@@ -302,7 +302,7 @@ class MainActivity : AppCompatActivity() {
                 "   println(\"First Element of our list----\"+items.first())BREAKHERE" +
                 "   println(\"Last Element of our list----\"+items.last())BREAKHERE" +
                 "   println(\"Even Numbers of our List----\"+items.BREAKHERE" +
-                "      filter { it % 2 = = 0 })   // returns [2, 4]BREAKHERE" +
+                "      filter { it % 2 == 0 })   // returns [2, 4]BREAKHERE" +
                 "   BREAKHERE" +
                 "   val readWriteMap = hashMapOf(\"foo\" to 1, \"bar\" to 2)BREAKHERE" +
                 "   println(readWriteMap[\"foo\"])  // prints \"1\"BREAKHERE" +
@@ -361,8 +361,8 @@ class MainActivity : AppCompatActivity() {
                 "CODEHEREfun main(args: Array&lt;String&gt;) {BREAKHERE" +
                 "   val x:Int = 5BREAKHERE" +
                 "   when (x) {BREAKHERE" +
-                "      1 -&gt; print(\"x = = 1\")BREAKHERE" +
-                "      2 -&gt; print(\"x = = 2\")BREAKHERE" +
+                "      1 -&gt; print(\"x == 1\")BREAKHERE" +
+                "      2 -&gt; print(\"x == 2\")BREAKHERE" +
                 "      BREAKHERE" +
                 "      else -&gt; { // Note the blockBREAKHERE" +
                 "         print(\"x is neither 1 nor 2\")BREAKHERE" +
@@ -373,8 +373,8 @@ class MainActivity : AppCompatActivity() {
                 "RESULTHEREfun main(args: Array&lt;String&gt;) {BREAKHERE" +
                 "   val x:Int = 5BREAKHERE" +
                 "   when (x) {BREAKHERE" +
-                "      1 -&gt; print(\"x = = 1\")BREAKHERE" +
-                "      2 -&gt; print(\"x = = 2\")BREAKHERE" +
+                "      1 -&gt; print(\"x == 1\")BREAKHERE" +
+                "      2 -&gt; print(\"x == 2\")BREAKHERE" +
                 "      BREAKHERE" +
                 "      else -&gt; { // Note the blockBREAKHERE" +
                 "         print(\"x is neither 1 nor 2\")BREAKHERE" +
@@ -483,7 +483,7 @@ class MainActivity : AppCompatActivity() {
                 "CODEHEREfun main(args: Array&lt;String&gt;) {BREAKHERE" +
                 "   println(\"Example of Break and Continue\")BREAKHERE" +
                 "   myLabel@ for(x in 1..10) { // appling the custom labelBREAKHERE" +
-                "      if(x = = 5) {BREAKHERE" +
+                "      if(x == 5) {BREAKHERE" +
                 "         println(\"I am inside if block with value\"+x+\"\n-- hence it will close the operation\")BREAKHERE" +
                 "         break@myLabel //specifing the labelBREAKHERE" +
                 "      } else {BREAKHERE" +
