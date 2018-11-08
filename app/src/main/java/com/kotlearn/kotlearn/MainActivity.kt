@@ -939,7 +939,8 @@ class MainActivity : AppCompatActivity() {
                 "   }BREAKHERE" +
                 "   operator fun setValue(thisRef: Any?, property: KProperty&lt;*&gt;, value: String) {BREAKHERE" +
                 "      println(\"\$value has been assigned to '\${property.name} in $\thisRef.'\")BREAKHERE" +
-                "   }CODEENDHERE" +
+                "   }BREAKHERE" +
+                "}CODEENDHERE" +
                 "While reading, getValue() method will be called and while setting the variable setValue() method will be called.")
 
         insertTopic(16, "Functions", "H1HEREFunctionsH1ENDHEREKotlin is a statically typed language, hence, functions play a great role in it. We are pretty familiar with function, as we are using function throughout the examples. Function is declared with the keyword “fun”. Like any other OOP, it also needs a return type and an option argument list.BREAKHERE" +
