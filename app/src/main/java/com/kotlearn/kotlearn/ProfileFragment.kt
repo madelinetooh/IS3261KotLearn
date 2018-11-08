@@ -9,6 +9,8 @@ import android.webkit.WebViewClient
 
 
 
+
+
 class ProfileFragment : android.support.v4.app.Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
@@ -35,6 +37,8 @@ class ProfileFragment : android.support.v4.app.Fragment() {
             }
             false
         })
+        val webSettings = webView.getSettings()
+        webSettings.setJavaScriptEnabled(true)
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 val editor = sharedPreferences.edit()
