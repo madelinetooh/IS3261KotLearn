@@ -28,6 +28,19 @@ class TopicFragment : android.support.v4.app.Fragment() {
         sharedPreferences = context.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
         val linearLayout = view.findViewById<LinearLayout>(R.id.content_layout)
         val bottomNav = activity!!.findViewById<BottomNavigationView>(R.id.navigation)
+
+        contentString = contentString.replace("H1HERE", "<h1>")
+        contentString = contentString.replace("H1ENDHERE", "</h1>")
+        contentString = contentString.replace("H2HERE", "<h2>")
+        contentString = contentString.replace("H2ENDHERE", "</h2>")
+        contentString = contentString.replace("CODEHERE", "<code>")
+        contentString = contentString.replace("CODEENDHERE", "</code>")
+        contentString = contentString.replace("RESULTHERE", "<result>")
+        contentString = contentString.replace("RESULTENDHERE", "</result>")
+        contentString = contentString.replace("BOLDHERE", "<b>")
+        contentString = contentString.replace("BOLDENDHERE", "</b>")
+        contentString = contentString.replace("BREAKHERE", "<br />")
+
         contentString = contentString.replace("<h1>",
                 "<h1><font color='#E91E63' size='20'>")
         contentString = contentString.replace("</h1>", "</font></h1>")
@@ -64,7 +77,8 @@ class TopicFragment : android.support.v4.app.Fragment() {
             val codeSnippetLayout = layoutInflater.inflate(R.layout.code_snippet_layout, null)
             val textView = codeSnippetLayout.findViewById<TextView>(R.id.code_content)
             val runCodeButton = codeSnippetLayout.findViewById<Button>(R.id.run_code_button)
-            val code = content.substring(6, codePos)
+            var code = content.substring(6, codePos)
+            code = code.replace(" ", "&nbsp;")
             runCodeButton.setOnClickListener {
                 bottomNav.menu.findItem(R.id.navigation_complier).isChecked = true
                 val editor = sharedPreferences.edit()

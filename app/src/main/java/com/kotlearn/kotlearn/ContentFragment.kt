@@ -17,10 +17,10 @@ class ContentFragment : android.support.v4.app.Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         topicDbHelper = DBHelper(this@ContentFragment.activity!!.applicationContext)
         val allTopics = topicDbHelper.readAllTopics()
-        if (allTopics.isEmpty()) {
-            InternetJSON(this@ContentFragment.activity!!.applicationContext,"http://172.19.195.190:8080/KotlearnBackend-war/resources/topics/getTopics",
-                    topicDbHelper).execute()
-        }
+//        if (allTopics.isEmpty()) {
+//            InternetJSON(this@ContentFragment.activity!!.applicationContext,"http://172.19.195.190:8080/KotlearnBackend-war/resources/topics/getTopics",
+//                    topicDbHelper).execute()
+//        }
         topicHeaderArray = allTopics.map { it.topicHeader }
         topicIdArray = allTopics.map { it.id }
         adapter = ArrayAdapter<String>(this@ContentFragment.activity!!.applicationContext,

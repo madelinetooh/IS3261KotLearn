@@ -28,6 +28,11 @@ class CompilerFragment : android.support.v4.app.Fragment() {
 
         val input = view.code_editor
 
+        view.btn_run.setOnClickListener {
+            InternetJSON(context,"https://rextester.com/rundotnet/Run", view.code_editor.text.toString(),
+                    view.result_textview).execute()
+        }
+
         view.btn_clear.setOnClickListener {
             input.setText("")
             view.lineCount.text = "1"

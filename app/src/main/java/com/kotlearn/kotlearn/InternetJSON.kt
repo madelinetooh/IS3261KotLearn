@@ -2,7 +2,9 @@ package com.kotlearn.kotlearn
 
 import android.content.Context
 import android.os.AsyncTask
+import android.widget.TextView
 import android.widget.Toast
+import org.json.JSONObject
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.IOException
@@ -10,9 +12,11 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
-class InternetJSON(private val c: Context, private var jsonURL: String,
-                   private var dbHelper: DBHelper): AsyncTask<Void, Void, String>(){
+class InternetJSON(private val c: Context, private var jsonURL: String, private var program: String,
+                   private var resultTextView: TextView): AsyncTask<Void, Void, String>(){
 
     override fun doInBackground(vararg params: Void?): String {
 
@@ -35,7 +39,7 @@ class InternetJSON(private val c: Context, private var jsonURL: String,
                     Toast.LENGTH_LONG).show()
 
         } else {
-            JSONParser(c, jsonData, dbHelper).execute()
+            JSONParser(c, jsonData, resultTextView).execute()
         }
     }
 
@@ -43,11 +47,12 @@ class InternetJSON(private val c: Context, private var jsonURL: String,
         try {
             val url = URL(jsonURL)
             val con = url.openConnection() as HttpURLConnection
-
-            con.requestMethod = "GET"
-            con.connectTimeout = 15000
-            con.readTimeout    = 15000
-            con.doInput        = true
+            println("TEST VALUE $program")
+            con.requestMethod = "POST"
+            val encode = URLEncoder.encode(program, "UTF-8")
+            val test = "LanguageChoiceWrapper=43&Program=$encode"
+            con.outputStream.write(test.toByteArray(StandardCharsets.UTF_8))
+            con.outputStream.close()
 
             return con
 
@@ -63,7 +68,7 @@ class InternetJSON(private val c: Context, private var jsonURL: String,
 
     private fun download(): String {
         val connection = connect(jsonURL)
-        if (connection.toString().startsWith("ERROR")) {
+        if (connection.toString().contains("ERROR")) {
             return connection.toString()
         }
 
