@@ -33,7 +33,7 @@
         android:background="#20204A"
         android:layout_width="match_parent"
         android:textColor="#FFF59D"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"

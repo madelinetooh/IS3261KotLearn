@@ -76,7 +76,6 @@ class ContentPageActivity : AppCompatActivity() {
             val textView = codeSnippetLayout.findViewById<TextView>(R.id.code_content)
             val runCodeButton = codeSnippetLayout.findViewById<Button>(R.id.run_code_button)
             var code = content.substring(6, codePos)
-//            code = code.replace(" ", "&nbsp;")
             runCodeButton.setOnClickListener {
                 val myIntent = Intent()
                 val editor = sharedPreferences.edit()
@@ -86,14 +85,21 @@ class ContentPageActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, myIntent)
                 finish()
             }
-            textView.text = Html.fromHtml(code)
+            code = code.replace("<br/>", "\n")
+            code = code.replace("&lt;", "<")
+            code = code.replace("&gt;", ">")
+            textView.text = code
             linearLayout.addView(codeSnippetLayout)
             processContent(content.substring(codePos + 7), linearLayout, context)
         } else if (content.startsWith("<result>")) {
             val codePos = content.indexOf("</result>")
             val codeResultLayout = layoutInflater.inflate(R.layout.code_result_layout, null)
             val textView = codeResultLayout.findViewById<TextView>(R.id.result_text)
-            textView.text = Html.fromHtml("<i>" + content.substring(8, codePos) + "</i>")
+            var resultText = content.substring(8, codePos)
+            resultText = resultText.replace("<br/>", "\n")
+            resultText = resultText.replace("&lt;", "<")
+            resultText = resultText.replace("&gt;", ">")
+            textView.text = resultText
             linearLayout.addView(codeResultLayout)
             processContent(content.substring(codePos + 9), linearLayout, context)
         }
