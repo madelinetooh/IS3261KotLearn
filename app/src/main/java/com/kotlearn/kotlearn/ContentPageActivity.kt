@@ -57,12 +57,13 @@ class ContentPageActivity : AppCompatActivity() {
         if (content == "") return
         if (!content.startsWith("<code>") && !content.startsWith("<result>")) {
             var codeIndex = content.indexOf("<code>")
-            val resultIndex = content.indexOf("<result>")
-            codeIndex = if (codeIndex < 0) resultIndex else codeIndex
+            var resultIndex = content.indexOf("<result>")
+            codeIndex = if (codeIndex < 0) Int.MAX_VALUE else codeIndex
+            resultIndex = if (resultIndex < 0) Int.MAX_VALUE else resultIndex
             val codePos = Math.min(codeIndex, resultIndex)
             val contentLayout = layoutInflater.inflate(R.layout.content_layout, null)
             val textView = contentLayout.findViewById<TextView>(R.id.content_text)
-            if (codePos == -1) {
+            if (codePos == Int.MAX_VALUE) {
                 textView.text = Html.fromHtml(content)
                 linearLayout.addView(contentLayout)
             } else {

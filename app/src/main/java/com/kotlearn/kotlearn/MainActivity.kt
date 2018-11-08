@@ -896,12 +896,12 @@ class MainActivity : AppCompatActivity() {
                 "BREAKHERE" +
                 "The above piece of code will yield the following output in the browser.BREAKHERE" +
                 "RESULTHERE10RESULTENDHERE" +
-                "Property DelegationBREAKHERE" +
+                "H2HEREProperty DelegationH2ENDHERE" +
                 "In the previous section, we have learned about the delegation design pattern using “by” keyword. In this section, we will learn about delegation of properties using some standard methods mentioned in Kotlin library.BREAKHERE" +
                 "BREAKHERE" +
                 "Delegation means passing the responsibility to another class or method. When a property is already declared in some places, then we should reuse the same code to initialize them. In the following examples, we will use some standard delegation methodology provided by Kotlin and some standard library function while implementing delegation in our examples.BREAKHERE" +
                 "BREAKHERE" +
-                "Using Lazy()BREAKHERE" +
+                "BOLDHEREUsing Lazy()BOLDENDHEREBREAKHERE" +
                 "Lazy is a lambda function which takes a property as an input and in return gives an instance of Lazy&lt;T&gt;, where &lt;T&gt; is basically the type of the properties it is using. Let us take a look at the following to understand how it works.BREAKHERE" +
                 "CODEHEREval myVar: String by lazy {BREAKHERE" +
                 "   \"Hello\"BREAKHERE" +
@@ -912,7 +912,7 @@ class MainActivity : AppCompatActivity() {
                 "In the above piece of code, we are passing a variable “myVar” to the Lazy function, which in return assigns the value to its object and returns the same to the main function. Following is the output in the browser.BREAKHERE" +
                 "RESULTHEREHello My dear friendRESULTENDHERE" +
                 "BREAKHERE" +
-                "Delegetion.Observable()BREAKHERE" +
+                "BOLDHEREDelegetion.Observable()BOLDENDHEREBREAKHERE" +
                 "Observable() takes two arguments to initialize the object and returns the same to the called function. In the following example, we will see how to use Observable() method in order to implement delegation.BREAKHERE" +
                 "CODEHEREimport kotlin.properties.DelegatesBREAKHERE" +
                 "class User {BREAKHERE" +
@@ -927,7 +927,7 @@ class MainActivity : AppCompatActivity() {
                 "   user.name = \"second\"BREAKHERE" +
                 "}CODEENDHERE" +
                 "The above piece of code will yield the following output in the browser.BREAKHERE" +
-                "CODEHEREfirst -&gt; secondCODEENDHERE" +
+                "RESULTHEREfirst -&gt; secondRESULTENDHERE" +
                 "In general, the syntax is the expression after the “by” keyword is delegated. The get() and set() methods of the variable p will be delegated to its getValue() and setValue() methods defined in the Delegate class.BREAKHERE" +
                 "CODEHEREclass Example {BREAKHERE" +
                 "   var p: String by Delegate()BREAKHERE" +
