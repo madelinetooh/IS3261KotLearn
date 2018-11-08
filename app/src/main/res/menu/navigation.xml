@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/navigation_web"
-        android:icon="@drawable/web"
-        android:title="Web" />
-
     <item
         android:id="@+id/navigation_content"
         android:icon="@drawable/content"
@@ -16,4 +10,8 @@
         android:icon="@drawable/complier"
         android:title="Complier" />
 
+    <item
+        android:id="@+id/navigation_web"
+        android:icon="@drawable/web"
+        android:title="Web" />
 </menu>

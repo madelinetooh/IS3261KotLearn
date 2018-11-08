@@ -1,5 +1,6 @@
 package com.kotlearn.kotlearn
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ class ContentFragment : android.support.v4.app.Fragment() {
     private lateinit var adapter: ListAdapter
     private lateinit var topicHeaderArray: List<String>
     private lateinit var topicIdArray: List<Int>
+    private val REQUEST_CODE : Int = 2
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         topicDbHelper = DBHelper(this@ContentFragment.activity!!.applicationContext)
@@ -37,9 +39,9 @@ class ContentFragment : android.support.v4.app.Fragment() {
             run {
                 val selectedId = topicIdArray.get(position)
                 val readTopic = topicDbHelper.readTopic(selectedId)
-                val topicFragment = TopicFragment()
-                topicFragment.arguments = Bundle().apply { putString("content", readTopic.get(0).topicContent) }
-                fragmentManager!!.beginTransaction().replace(R.id.fragment_container, topicFragment).commit()
+                val myIntent = Intent(context, ContentPageActivity::class.java)
+                myIntent.putExtra("content", readTopic[0].topicContent)
+                startActivityForResult(myIntent, REQUEST_CODE)
             }
         }
     }

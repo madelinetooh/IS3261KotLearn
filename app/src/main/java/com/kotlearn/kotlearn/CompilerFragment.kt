@@ -32,12 +32,15 @@ class CompilerFragment : android.support.v4.app.Fragment() {
         val input = view.code_editor
 
         view.btn_run.setOnClickListener {
+            view.progressBar.visibility = View.VISIBLE
+            view.result_textview.visibility = View.GONE
             InternetJSON(context,"https://rextester.com/rundotnet/Run", view.code_editor.text.toString(),
-                    view.result_textview).execute()
+                    view.result_textview, view.progressBar).execute()
         }
 
         view.btn_clear.setOnClickListener {
             input.setText("")
+            view.result_textview.text = ""
             view.lineCount.text = "1"
             val editor = sharedPreferences.edit()
             editor.putString(CODE, "")
@@ -68,14 +71,6 @@ class CompilerFragment : android.support.v4.app.Fragment() {
         return view
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        println("HERE HERE HERE 2 $requestCode $resultCode ")
-        if ((requestCode == REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
-            setCodeText(code_editor, false)
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val context = this@CompilerFragment.activity!!.applicationContext
         sharedPreferences = context.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
@@ -83,13 +78,22 @@ class CompilerFragment : android.support.v4.app.Fragment() {
         setCodeText(codeEditor, true)
     }
 
-    private fun setCodeText(codeEditor: EditText, isHtml: Boolean) {
-        val codeContent = sharedPreferences.getString(CODE, empty)
-        println("CODE CONTENT $codeContent")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
+            setCodeText(code_editor, false)
+        }
+    }
+
+    fun setCodeText(codeEditor: EditText, isHtml: Boolean) {
+        var codeContent = sharedPreferences.getString(CODE, empty)
         if (codeContent != empty) {
-            if (isHtml) codeEditor.setText(Html.fromHtml(codeContent))
-            else codeEditor.setText(codeContent)
-            println("TEST HERE")
+            if (isHtml) {
+                codeContent = codeContent.replace("<br/>", "\n")
+                codeContent = codeContent.replace("&lt;", "<")
+                codeContent = codeContent.replace("&gt;", ">")
+            }
+            codeEditor.setText(codeContent)
             codeEditor.post {
                 var lines = codeEditor.lineCount
                 var linestext = ""
@@ -97,7 +101,6 @@ class CompilerFragment : android.support.v4.app.Fragment() {
                 lineCount.text = linestext
             }
         } else {
-            println("TEST LEH")
             lineCount.text = "1"
         }
         codeEditor.setOnFocusChangeListener { _, _ ->

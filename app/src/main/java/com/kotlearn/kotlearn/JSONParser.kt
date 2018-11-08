@@ -2,14 +2,15 @@ package com.kotlearn.kotlearn
 
 import android.content.Context
 import android.os.AsyncTask
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
 class JSONParser(private var c: Context, private var jsonData: String,
-                 private val resultTextView: TextView): AsyncTask<Void, Void, Boolean>() {
+                 private val resultTextView: TextView, private var progressBar: ProgressBar): AsyncTask<Void, Void, Boolean>() {
 
     private var result = ""
     private var exception = ""
@@ -22,12 +23,13 @@ class JSONParser(private var c: Context, private var jsonData: String,
         super.onPostExecute(isParsed)
 
         if (isParsed!!) {
-
+            progressBar.visibility = View.GONE
 //            Toast.makeText(c, "parse successful -- " + topics.size
 //                    + " " + topics[topics.size - 1].id + ", "
 //                    + topics[topics.size - 1].topicHeader, Toast.LENGTH_LONG).show()
 
 //            topics.forEach{dbHelper.insertTopic(it)}
+            resultTextView.visibility = View.VISIBLE
             resultTextView.text = if (result.equals("null")) exception else result
 //            resultTextView.text = jsonData
 

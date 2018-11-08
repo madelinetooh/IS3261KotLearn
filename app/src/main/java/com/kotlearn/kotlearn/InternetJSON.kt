@@ -2,9 +2,9 @@ package com.kotlearn.kotlearn
 
 import android.content.Context
 import android.os.AsyncTask
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import org.json.JSONObject
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.IOException
@@ -16,7 +16,7 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 class InternetJSON(private val c: Context, private var jsonURL: String, private var program: String,
-                   private var resultTextView: TextView): AsyncTask<Void, Void, String>(){
+                   private var resultTextView: TextView, private var progressBar: ProgressBar): AsyncTask<Void, Void, String>(){
 
     override fun doInBackground(vararg params: Void?): String {
 
@@ -39,7 +39,7 @@ class InternetJSON(private val c: Context, private var jsonURL: String, private 
                     Toast.LENGTH_LONG).show()
 
         } else {
-            JSONParser(c, jsonData, resultTextView).execute()
+            JSONParser(c, jsonData, resultTextView, progressBar).execute()
         }
     }
 

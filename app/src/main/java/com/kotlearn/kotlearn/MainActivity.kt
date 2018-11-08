@@ -13,71 +13,60 @@ import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.text.Html
-import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_compiler.*
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var topicDbHelper: DBHelper
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var active: android.support.v4.app.Fragment
     private var myPreferences = "myPrefs"
     private var URL = "URL"
     private var CODE = "code"
     private val permissionList = arrayOf(
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAMERA)
-    val REQUEST_CODE : Int = 1
-    private var empty = ""
+    private val fragmentWeb = ProfileFragment()
+    private val fragmentCompiler = CompilerFragment()
+    private val fragmentContent = ContentFragment()
 
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        var selectedFragment: android.support.v4.app.Fragment? = null
-        when (item.itemId) {
-            R.id.navigation_web -> {
-                selectedFragment = ProfileFragment()
-            }
-            R.id.navigation_content -> {
-                selectedFragment = ContentFragment()
-            }
-            R.id.navigation_complier -> {
-                selectedFragment = CompilerFragment()
-            }
-        }
-        val fragmentManager = supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, selectedFragment)
-        transaction.commit()
-        return@OnNavigationItemSelectedListener true
+                var selectedFragment: android.support.v4.app.Fragment? = null
+                when (item.itemId) {
+                    R.id.navigation_web -> {
+                        selectedFragment = fragmentWeb
+                    }
+                    R.id.navigation_content -> {
+                        selectedFragment = fragmentContent
+                    }
+                    R.id.navigation_complier -> {
+                        selectedFragment = fragmentCompiler
+                    }
+                }
+                val fragmentManager = supportFragmentManager
+                val transaction = fragmentManager.beginTransaction()
+                transaction.hide(active)
+                transaction.show(selectedFragment)
+                active = selectedFragment!!
+                transaction.commit()
+                return@OnNavigationItemSelectedListener true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ProfileFragment())
-                .commit()
-
-
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
+        transaction.add(R.id.fragment_container,fragmentContent)
+        transaction.add(R.id.fragment_container, fragmentWeb)
+        transaction.add(R.id.fragment_container, fragmentCompiler)
 
-        val fragmentContent= ContentFragment()
-        transaction.add(R.id.fragment_content,fragmentContent)
-
-        val fragmentProfile = ProfileFragment()
-        transaction.add(R.id.fragment_profile, fragmentProfile)
-
-        val fragmentComplier = CompilerFragment()
-        transaction.add(R.id.fragment_complier, fragmentComplier)
-
-        transaction.hide(fragmentComplier)
-        transaction.hide(fragmentContent)
-        transaction.hide(fragmentProfile)
+        transaction.hide(fragmentCompiler)
+        transaction.hide(fragmentWeb)
+        active = fragmentContent
 
         transaction.commit()
 
@@ -96,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         if (allTopics.isEmpty()) populateData()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (allPermissionsEnabled()) {
-
             } else {
                 setupMultiplePermissions()
             }
@@ -106,26 +94,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setCodeText(codeEditor: EditText, isHtml: Boolean) {
-        val codeContent = sharedPreferences.getString(CODE, empty)
-        if (codeContent != empty) {
-            if (isHtml) codeEditor.setText(Html.fromHtml(codeContent))
-            else codeEditor.setText(codeContent)
-            codeEditor.post {
-                var lines = codeEditor.lineCount
-                var linestext = ""
-                for (i in 1..lines) linestext = linestext + i + "\n"
-                lineCount.text = linestext
-            }
-        } else {
-            lineCount.text = "1"
-        }
-        codeEditor.setOnFocusChangeListener { _, _ ->
-            run {
-                val editor = sharedPreferences.edit()
-                editor.putString(CODE, Html.toHtml(codeEditor.text))
-                editor.apply()
-            }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null && data.hasExtra("compiler") && (resultCode == Activity.RESULT_OK)) {
+            navigation.menu.findItem(R.id.navigation_complier).isChecked = true
+            val fragmentManager = supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.hide(active)
+            transaction.show(fragmentCompiler)
+            active = fragmentCompiler
+            fragmentCompiler.setCodeText(findViewById(R.id.code_editor), true)
+            transaction.commit()
         }
     }
 
