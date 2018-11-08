@@ -2,7 +2,9 @@ package com.kotlearn.kotlearn
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
@@ -11,7 +13,10 @@ import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.text.Html
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_compiler.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private val permissionList = arrayOf(
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAMERA)
+    val REQUEST_CODE : Int = 1
+    private var empty = ""
 
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -96,6 +103,29 @@ class MainActivity : AppCompatActivity() {
         } else {
             // it must be older than Marshmallow, no need to do anything as long as
             // you have added the permission in the AndroidManifest.xml file
+        }
+    }
+
+    private fun setCodeText(codeEditor: EditText, isHtml: Boolean) {
+        val codeContent = sharedPreferences.getString(CODE, empty)
+        if (codeContent != empty) {
+            if (isHtml) codeEditor.setText(Html.fromHtml(codeContent))
+            else codeEditor.setText(codeContent)
+            codeEditor.post {
+                var lines = codeEditor.lineCount
+                var linestext = ""
+                for (i in 1..lines) linestext = linestext + i + "\n"
+                lineCount.text = linestext
+            }
+        } else {
+            lineCount.text = "1"
+        }
+        codeEditor.setOnFocusChangeListener { _, _ ->
+            run {
+                val editor = sharedPreferences.edit()
+                editor.putString(CODE, Html.toHtml(codeEditor.text))
+                editor.apply()
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.kotlearn.kotlearn
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -20,6 +21,7 @@ class CompilerFragment : android.support.v4.app.Fragment() {
     private var myPreferences = "myPrefs"
     private var CODE = "code"
     private var empty = ""
+    val REQUEST_CODE : Int = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         contentString = if (arguments != null) arguments!!.getString("code") else ""
@@ -44,7 +46,7 @@ class CompilerFragment : android.support.v4.app.Fragment() {
 
         view.btn_scanQR.setOnClickListener {
             val qrIntent = Intent(context, QRScanner::class.java)
-            startActivity(qrIntent)
+            startActivityForResult(qrIntent, REQUEST_CODE)
         }
 
         input.addTextChangedListener(object : TextWatcher {
@@ -55,25 +57,39 @@ class CompilerFragment : android.support.v4.app.Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 var lines = code_editor.lineCount
-                var linestext: String = ""
+                var linestext = ""
                 for (i in 1..lines) {
                     linestext = linestext + i + "\n"
-
                 }
                 lineCount.text = linestext
             }
-
         })
 
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        println("HERE HERE HERE 2 $requestCode $resultCode ")
+        if ((requestCode == REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
+            setCodeText(code_editor, false)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val context = this@CompilerFragment.activity!!.applicationContext
         sharedPreferences = context.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
         val codeEditor = view.findViewById<EditText>(R.id.code_editor)
-        if (sharedPreferences.getString(CODE, empty) != empty) {
-            codeEditor.setText(Html.fromHtml(sharedPreferences.getString(CODE, empty)))
+        setCodeText(codeEditor, true)
+    }
+
+    private fun setCodeText(codeEditor: EditText, isHtml: Boolean) {
+        val codeContent = sharedPreferences.getString(CODE, empty)
+        println("CODE CONTENT $codeContent")
+        if (codeContent != empty) {
+            if (isHtml) codeEditor.setText(Html.fromHtml(codeContent))
+            else codeEditor.setText(codeContent)
+            println("TEST HERE")
             codeEditor.post {
                 var lines = codeEditor.lineCount
                 var linestext = ""
@@ -81,9 +97,10 @@ class CompilerFragment : android.support.v4.app.Fragment() {
                 lineCount.text = linestext
             }
         } else {
+            println("TEST LEH")
             lineCount.text = "1"
         }
-        codeEditor.setOnFocusChangeListener { v, hasFocus ->
+        codeEditor.setOnFocusChangeListener { _, _ ->
             run {
                 val editor = sharedPreferences.edit()
                 editor.putString(CODE, Html.toHtml(codeEditor.text))

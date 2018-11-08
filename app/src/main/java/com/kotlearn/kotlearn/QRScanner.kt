@@ -1,7 +1,9 @@
 package com.kotlearn.kotlearn
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -61,20 +63,17 @@ class QRScanner : AppCompatActivity() {
             override fun release() {}
 
             override fun receiveDetections(detections: Detector.Detections<Barcode>) {
-                val barcodes = detections.detectedItems
-                if (barcodes.size() != 0) {
+                val barCodes = detections.detectedItems
+                if (barCodes.size() != 0) {
                     val editor = sharedPreferences.edit()
-                    val displayValue = barcodes.valueAt(0).displayValue
+                    val displayValue = barCodes.valueAt(0).displayValue
                     editor.putString(CODE, displayValue)
                     editor.apply()
+                    val myIntent = Intent()
+                    setResult(Activity.RESULT_OK, myIntent)
                     println("TEST $displayValue")
                     finish()
                 }
-//                if (barcodes.size() != 0) {
-//                    tv.post{
-//                        tv.text = barcodes.valueAt(0).displayValue
-//                    }
-//                }
             }
         })
 
